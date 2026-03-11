@@ -3,8 +3,6 @@
 from pathlib import Path 
 from mutagen import File
 from mutagen.easyid3 import EasyID3
-from scanner import scan
-
 
 
 """
@@ -13,7 +11,6 @@ from scanner import scan
     2. For each song get metadata and store in new list
 """
 
-metadata_list = []
 
 def extract_metadata(path):
     try:
@@ -24,13 +21,11 @@ def extract_metadata(path):
             "album": audio.get("album", [None])[0],
             "title": audio.get("title", [None])[0],
             "artist": audio.get("artist", [None])[0],
+            "tracknumber": audio.get("tracknumber", [None])[0],
             "duration": audio.info.length
         }
+    
     except Exception as e:
         print(f"Failed to read metadata for {path}: {e}")
         return None
 
-
-data = extract_metadata("/Users/jordan/Music/tyler_the_creator/dont_tap_the_glass/01.flac")
-
-print(data)

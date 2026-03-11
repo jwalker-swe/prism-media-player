@@ -25,7 +25,7 @@ def main():
 
     player.play()
 
-    try
+    try:
         while player.is_playing():
             time.sleep(1)
     except KeyboardInterrupt:

@@ -21,5 +21,4 @@ def scan(directory):
 
 
 # Run scan and create list of called songs
-songs = scan("/Users/jordan/Music/")
 
