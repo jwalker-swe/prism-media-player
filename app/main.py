@@ -2,6 +2,7 @@ from app.db.database import init_db
 from app.library.scanner import scan
 from app.library.metadata import extract_metadata
 from app.db.repository import insert_tracks
+from app.db.repository import get_all_tracks
 
 MUSIC_LIBRARY_PATH = "/Users/jordan/Music/library/"
 
@@ -12,6 +13,9 @@ def main():
         extract_metadata(path) for path in paths
     ]
     insert_tracks(metadata_list)
+
+    available_tracks = get_all_tracks()
+
 
     
 

@@ -1,9 +1,8 @@
-# Current Goals:
 """
 Current Goals: 
 
 Implement the three following functions
-    - insert_track(metadata_dict)
+    x insert_track(metadata_dict)
         - insert or ignore if path already exists ( use INSERT OR IGNORE )
 
     - get_all_tracks()
@@ -49,5 +48,15 @@ def insert_tracks(metadata_list):
     
     except Exception as e:
         print(f"Failed to insert tracks to db: {e}")
+
+
+def get_all_tracks():
+    conn = define_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM tracks")
+
+    tracks = cursor.fetchall()
+
+    return tracks
 
 
