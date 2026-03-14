@@ -17,7 +17,7 @@ def init_db():
                 title TEXT,
                 album TEXT,
                 artist TEXT,
-                tracknumber TEXT,
+                tracknumber INTEGER,
                 duration REAL
             )
         """
