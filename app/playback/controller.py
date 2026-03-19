@@ -18,7 +18,11 @@ class MusicController:
     '''
 
     def add_to_queue(self, track):
-        self.queue.append(track)
+        if len(self.queue) == 0:
+            self.queue.append(track)
+            self.player.play()
+        else:
+            self.queue.append(track)
 
     def remove_from_queue(self, index):
         self.queue.pop(index)
@@ -40,6 +44,7 @@ class MusicController:
 
     def clear_queue(self):
         self.queue.clear()
+        self.player.stop()
 
     def play(self):
         paths = []
@@ -51,7 +56,7 @@ class MusicController:
         for path in paths:
             media_list.add_media(self.instance.media_new(path))
 
-        self.player.set_media_list(media_list)        
+        self.player.set_media_list(media_list)
         self.player.play()
 
     def pause(self):
